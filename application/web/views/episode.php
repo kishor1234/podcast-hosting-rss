@@ -33,13 +33,13 @@
                             <div class="show_info d-flex flex-row align-items-start justify-content-start">
                                 <div class="show_fav d-flex flex-row align-items-center justify-content-start">
                                     <div class="show_fav_icon show_info_icon"><img class="svg" src="/assets/website/images/heart.svg" alt=""></div>
-                                    <div class="show_fav_count">2371</div>
+                                    <div class="show_fav_count"><?= $likes ?></div>
                                 </div>
                                 <div class="show_comments">
                                     <a href="#">
                                         <div class="d-flex flex-row align-items-center justify-content-start">
                                             <div class="show_comments_icon show_info_icon"><img class="svg" src="/assets/website/images/speech-bubble.svg" alt=""></div>
-                                            <div class="show_comments_count">88 Comments</div>
+                                            <div class="show_comments_count"><?= $comments ?> Comments</div>
                                         </div>
                                     </a>	
                                 </div>
