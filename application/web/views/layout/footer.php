@@ -3,7 +3,7 @@
         <div class="row footer_logo_row">
             <div class="col d-flex flex-row align-items-center justify-content-center">
                 <div class="logo">
-                    <a href="#"><span>my</span>podcast<img src="/assets/website/images/play.png" alt=""></a>
+                    <a href="#"><img src="/assets/website/images/logo.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
                         <!-- Latest -->
                         <div class="latest">
                             <div class="latest_title_container d-flex flex-row align-items-start justify-content-start">
-                                <a href="/in/episode/<?= str_replace(" ", "-", $response["title"]); ?>">
+                                <a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>">
                                     <div class="d-flex flex-row align-items-start justify-content-start">
                                         <div class="latest_play">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
@@ -107,12 +107,12 @@
             <div class="col">
                 <div class="footer_social">
                     <ul class="d-flex flex-row align-items-center justify-content-center">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        <li><a href="/in/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>

@@ -33,7 +33,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="/"><span>my</span>podcast<img src="/assets/website/images/play.png" alt=""></a>
+                    <a href="/"><img src="/assets/website/images/logo.png" alt=""></a>
                 </div>
 
                 <div class="container">
@@ -43,7 +43,7 @@
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
                                         <li><a href="/">Home</a></li>
-                                        <li><a href="/in/about/">About</a></li>
+                                        <li><a href="/about/">About</a></li>
                                         <!--                                        <li><a href="episodes.html">Episodes</a></li>
                                                                                 <li><a href="blog.html">Blog</a></li>-->
                                         <!--                                        <li><a href="contact.html">Contact</a></li>-->
@@ -58,17 +58,17 @@
                 <div class="header_right d-flex flex-row align-items-start justify-content-start">
 
                     <!-- Submit -->
-                    <div class="submit"><a href="<?=admin_url?>">Submit a Podcast</a></div>
+                    <div class="submit"><a href="https://calendly.com/dakshinadyanthaya">Submit a Podcast</a></div>
 
                     <!-- Social -->
                     <div class="social">
                         <ul class="d-flex flex-row align-items-start justify-content-start">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                            <li><a href="/in/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
 
@@ -83,21 +83,22 @@
             <div class="menu">
                 <div class="menu_content d-flex flex-column align-items-end justify-content-start">
                     <ul class="menu_nav_list text-right">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="episodes.html">Episodes</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about/">About</a></li>
+                        <!--                        <li><a href="episodes.html">Episodes</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="contact.html">Contact</a></li>-->
                     </ul>
                     <div class="menu_extra d-flex flex-column align-items-end justify-content-start">
-                        <div class="menu_submit"><a href="#">Submit your podcast</a></div>
+                        <div class="menu_submit"><a href="https://calendly.com/dakshinadyanthaya">Submit a Podcast</a></div>
                         <div class="social">
                             <ul class="d-flex flex-row align-items-start justify-content-start">
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>

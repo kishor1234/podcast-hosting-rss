@@ -78,7 +78,7 @@ class CAaskController extends CI_Controller {
     public function create() {
         $viewConfig = array();
         $controllerAppConfig = array();
-        if (true) {
+        if (tp) {
             $viewConfig = $this->listFolderFiles(getcwd() . "/" . APPLICATION . "/views"); //array fo view files
             $controllerAppConfig = $this->listFolderFiles(getcwd() . "/" . APPLICATION . "/controllers/"); //array of controllers
             $my_file = 'AaskAPP/' . SUB . '.php';

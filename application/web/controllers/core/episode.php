@@ -26,16 +26,14 @@ class episode extends CAaskController {
 
     public function create() {
         parent::create();
-        if (isset($_SESSION["loginEmail"])) {
-            redirect(ASETS . "?r=" . $this->encript->encdata("C_Dashboard"));
-        }
+        
         return;
     }
 
     public function initialize() {
         parent::initialize();
         try {
-            $response = json_decode($this->jsonRespon(api_url . "/?r=userData", array("action" => "SinglePost", "limit" => 1,"title"=>str_replace("-"," ",$_REQUEST["v"]))), true);
+            $response = json_decode($this->jsonRespon(api_url . "/?r=userData", array("action" => "SinglePost", "limit" => 1,"title"=>str_replace("-"," ",$_REQUEST["3"]))), true);
 
 
             $this->isLoadView(array("header" => "header", "main" => "episode", "footer" => "footer", "error" => "page_404"), true, $response);

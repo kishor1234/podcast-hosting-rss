@@ -17,13 +17,24 @@ class ask_mysqli extends _configuration {
 
     public function _dbConnection() {
         try {
-            $tempObject[$this->_mysqliConfiguration["database"]] = new mysqli($this->_mysqliConfiguration["host"], $this->_mysqliConfiguration["username"], $this->_mysqliConfiguration["password"], $this->_mysqliConfiguration["database"]);
-            if (!$this->_mysqliConfiguration["single"]) {
-                return $this->addMoreDatabases("master_db", $tempObject[$this->_mysqliConfiguration["database"]]);
+            if (live) {
+                $tempObject[$this->_mysqliConfiguration["database"]] = new mysqli($this->_mysqliConfiguration["host"], $this->_mysqliConfiguration["username"], $this->_mysqliConfiguration["password"], $this->_mysqliConfiguration["database"]);
+                if (!$this->_mysqliConfiguration["single"]) {
+                    return $this->addMoreDatabases("master_db", $tempObject[$this->_mysqliConfiguration["database"]]);
+                } else {
+                    $this->checkMysqliConnectinError($tempObject[$this->_mysqliConfiguration["database"]]);
+                    $_SESSION["db_1"] = $this->_mysqliConfiguration["database"];
+                    return $tempObject;
+                }
             } else {
-                $this->checkMysqliConnectinError($tempObject[$this->_mysqliConfiguration["database"]]);
-                $_SESSION["db_1"] = $this->_mysqliConfiguration["database"];
-                return $tempObject;
+                $tempObject[$this->_mysqliConfigurationlocal["database"]] = new mysqli($this->_mysqliConfigurationlocal["host"], $this->_mysqliConfigurationlocal["username"], $this->_mysqliConfigurationlocal["password"], $this->_mysqliConfigurationlocal["database"]);
+                if (!$this->_mysqliConfigurationlocal["single"]) {
+                    return $this->addMoreDatabases("master_db", $tempObject[$this->_mysqliConfigurationlocal["database"]]);
+                } else {
+                    $this->checkMysqliConnectinError($tempObject[$this->_mysqliConfigurationlocal["database"]]);
+                    $_SESSION["db_1"] = $this->_mysqliConfigurationlocal["database"];
+                    return $tempObject;
+                }
             }
         } catch (Exception $ex) {
             error_log($ex, 3, "error.log");
@@ -444,8 +455,6 @@ class ask_mysqli extends _configuration {
         }
         return $sql;
     }
-
-    
 
 }
 

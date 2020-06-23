@@ -3,10 +3,10 @@
 <link rel="stylesheet" type="text/css" href="/assets/website/styles/about_responsive.css">
 
 <div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/about.jpg" data-speed="0.8"></div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/YTC.jpg" data-speed="0.8"></div>
     <div class="home_container d-flex flex-column align-items-center justify-content-center">
         <div class="home_content">
-            <div class="home_title"><h1>about</h1></div>
+            <div class="home_title"></div>
         </div>
     </div>
 </div>
@@ -18,10 +18,10 @@
         <div class="row">
             <div class="col">
                 <div class="intro_content text-center">
-                    <div class="section_title text-center"><h1>About my<span>podcast</span></h1></div>
+                    <div class="section_title text-center"><h1>ABOUT DE<span>LIBERATE</span></h1></div>
                     <div class="intro_text text-center">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a bibendum sem. Fusce dignissim et diam quis pretium. 
-                            Etiam efficitur semper accumsan. Sed et dui aliquet, ultrices tellus non, sagittis magna. Nullam justo quam, vestibulum non magna et, tempus tincidunt est. Ut laoreet magna ac luctus lacinia. Aliquam eget neque turpis. Phasellus nibh ex, tristique a magna ac, convallis tincidunt diam. Nulla facilisi. Phasellus porta sapien sit amet tortor rhoncus mattis.</p>
+                        <p>Deliberate Talks is a weekly podcast that highlights conversations about Digital Marketing, Entrepreneurship, Evolved work goals, new age opportunities and unconventional stories. Tune in every Monday for a new episode with our Host Dakshin Adyanthaya, the founder and director at Pixelated Egg Digital Ventures for a solo narrative or a conversation for two with his guests from different parts of the world.
+                            You can also follow / download the content on Spotify, Google Podcast, Apple Podcast, Stitcher, Jio Savvn or Youtube or engage with us on <a href="https://instagram.com/deliberatetalks">instagram.com/deliberatetalks</a> or email at <a href="mailto:deliberatetalks@gmail.com">deliberatetalks@gmail.com</a></p>
                     </div>
                     <div class="button_fill intro_button"><a href="#">read more</a></div>
                 </div>
@@ -90,7 +90,7 @@
     </div>
 </div>
 
-<!-- About -->
+<!-- About --
 
 <div class="about">
     <div class="container">

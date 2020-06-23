@@ -43,7 +43,7 @@ $response = $resp[0];
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
-                        <div class="button_border home_button trans_200"><a href="/in/episode/<?=str_replace(" ","-",$response["title"]);?>">More Info</a></div>
+                        <div class="button_border home_button trans_200"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>">More Info</a></div>
                     </div>
                 </div>
             </div>
@@ -64,21 +64,21 @@ $response = $resp[0];
                 <div class="col-lg-4">
                     <div class="show">
                         <div class="show_image">
-                            <a href="/in/episode/<?=str_replace(" ","-",$response["title"]);?>">
+                            <a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>">
                                 <img src="<?= $response["image_url"] ?>" class="imag-resp" alt="https://unsplash.com/@icons8">
                             </a>
                             <div class="show_tags">
                                 <div class="tags">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
-                                        <li><a href="/in/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["categories"] ?></a></li>
+                                        <li><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["categories"] ?></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="show_play_icon"><img src="/assets/website/images/play.svg" alt="https://www.flaticon.com/authors/cole-bemis"></div>
                         </div>
                         <div class="show_content">
-                            <div class="show_date"><a href="/in/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= date("M d, Y", strtotime($response["onCreate"])) ?></a></div>
-                            <div class="show_title"><a href="episode.html"><?= $response["title"] ?></a></div>
+                            <div class="show_date"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= date("M d, Y", strtotime($response["onCreate"])) ?></a></div>
+                            <div class="show_title"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["title"] ?></a></div>
                             <div class="show_info d-flex flex-row align-items-start justify-content-start">
                                 <div class="show_fav d-flex flex-row align-items-center justify-content-start">
                                     <div class="show_fav_icon show_info_icon"><img class="svg" src="/assets//website/images/heart.svg" alt=""></div>

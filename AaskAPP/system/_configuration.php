@@ -26,12 +26,22 @@ class _configuration {
         "ask_mysqli", // ask_mysqli for mysqli
         "ask_mailer"//ask_mailer for Mail
     );
-    public $_mysqliConfiguration = array(
+    public $_mysqliConfigurationlocal = array(
         "host" => "localhost",
         "port" => "3306",
         "username" => "root",
         "password" => "root@123",
         "database" => "podcast",
+        "socket" => "",
+        "single" => true, //if you user multiple database then use singel=>false and pass master db configuration
+        "master_table" => "master_db"
+    );
+    public $_mysqliConfiguration = array(
+        "host" => "localhost",
+        "port" => "3306",
+        "username" => "pedvblogusr",
+        "password" => "A8*ZFk,wUjf.",
+        "database" => "blogpedv",
         "socket" => "",
         "single" => true, //if you user multiple database then use singel=>false and pass master db configuration
         "master_table" => "master_db"

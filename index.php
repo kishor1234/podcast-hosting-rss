@@ -1,19 +1,15 @@
 <?php
 
 session_start(); //$_SESSION["cart"]=array();
-
-if (!isset($_SESSION["cart"])) {
-    $_SESSION["cart"] = array();
+if ($_REQUEST["tp"] == true) {
+    define("tp", true);
+} else {
+    define("tp", false);
 }
 //$_SESSION["msg"]="work";
-define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-define("domain", "http://podcast.lcl/");
-define("ADMINURL", "http://admin.podcast.lcl/");
-define("game","http://podcast.lcl/");
-define("company", "podcast");
-define("api_url", "http://api.podcast.lcl");
-define("admin_url", "http://admin.podcast.lcl");
-define("noreplayid", "no-replay@aasksoft.com");
+//$_SERVER['CI_ENV'] = "development";
+
+
 /*
  * ---------------------------------------------------------------
  * ERROR REPORTING
@@ -22,14 +18,47 @@ define("noreplayid", "no-replay@aasksoft.com");
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
+$protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
+$protocol = "http://";
+$full_url = $protocol . $_SERVER['HTTP_HOST'] . "/";
+define('ASETS', $full_url); //define('ASETS',$full_url."assets");
+$hostUrl = $_SERVER['HTTP_HOST'];
+define('HOSTURL', $full_url);
+$arrayHostUrl = explode('.', $hostUrl);
+if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")) {
+    $_SERVER['CI_ENV'] = "production";
+}
+$op = $arrayHostUrl[0];
+$application_folder = 'application';
+setlocale(LC_MONETARY, 'en_IN');
+define("SUB", $op);
+$_SESSION["t"] = 0;
+
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 switch (ENVIRONMENT) {
     case 'development':
+        define("domain", "http://podcast.lcl/");
+        define("ADMINURL", "http://admin.podcast.lcl/");
+        define("game", "http://podcast.lcl/");
+        define("company", "podcast");
+        define("api_url", "http://api.podcast.lcl");
+        define("admin_url", "http://admin.podcast.lcl");
+        define("noreplayid", "no-replay@aasksoft.com");
+        define("live", false);
         error_reporting(-1);
         ini_set('display_errors', 1);
         break;
 
     case 'testing':
     case 'production':
+        define("live", true);
+        define("domain", "http://pixelatedegg.com/");
+        define("ADMINURL", "http://admin.pixelatedegg.com/");
+        define("game", "http://api.pixelatedegg.com/");
+        define("company", "podcast");
+        define("api_url", "http://apipixelatedegg.com");
+        define("admin_url", "http://admin.pixelatedegg.com/");
+        define("noreplayid", "no-replay@pixelatedegg.com");
         ini_set('display_errors', 0);
         if (version_compare(PHP_VERSION, '5.3', '>=')) {
             error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
@@ -54,18 +83,7 @@ switch (ENVIRONMENT) {
  */
 
 //New Code
-$protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
-$protocol = "http://";
-$full_url = $protocol . $_SERVER['HTTP_HOST'] . "/";
-define('ASETS', $full_url); //define('ASETS',$full_url."assets");
-$hostUrl = $_SERVER['HTTP_HOST'];
-define('HOSTURL', $full_url);
-$arrayHostUrl = explode('.', $hostUrl);
-$op = $arrayHostUrl[0];
-$application_folder = 'application';
-setlocale(LC_MONETARY, 'en_IN');
-define("SUB", $op);
-$_SESSION["t"] = 0;
+
 
 switch ($op) {
     case 'api':
@@ -79,6 +97,12 @@ switch ($op) {
         break;
 
     default :
+        $_REQUEST = explode('/', parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
+        if (!empty($_REQUEST[1])) {
+            unset($_REQUEST[0]);
+            $_REQUEST["r"] = $_REQUEST[1];
+            $_REQUEST["v"] = $_REQUEST[2];
+        }
         $application_folder = 'application/web';
         break;
 }
