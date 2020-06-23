@@ -1,9 +1,9 @@
 <!-- Home -->
-<link rel="stylesheet" type="text/css" href="/assets/website/styles/about.css">
-<link rel="stylesheet" type="text/css" href="/assets/website/styles/about_responsive.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/about.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/about_responsive.css">
 
 <div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/YTC.jpg" data-speed="0.8"></div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?=base_url?>/assets/website/images/YTC.jpg" data-speed="0.8"></div>
     <div class="home_container d-flex flex-column align-items-center justify-content-center">
         <div class="home_content">
             <div class="home_title"></div>
@@ -33,7 +33,7 @@
 <!-- Milestones -->
 
 <div class="milestones">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/milestones.jpg" data-speed="0.8"></div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?=base_url?>/assets/website/images/milestones.jpg" data-speed="0.8"></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -47,7 +47,7 @@
                 <div class="milestone text-center">
                     <div class="milestone_content ml-auto mr-auto">
                         <div class="milestone_counter" data-end-value="55126">0</div>
-                        <div class="milestone_icon"><img src="/assets/website/images/alarm-clock.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                        <div class="milestone_icon"><img src="<?=base_url?>/assets/website/images/alarm-clock.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
                     </div>
                     <div class="milestone_title">Streamed Hours</div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="milestone text-center">
                     <div class="milestone_content ml-auto mr-auto">
                         <div class="milestone_counter" data-end-value="3520">0</div>
-                        <div class="milestone_icon"><img src="/assets/website/images/speaker.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                        <div class="milestone_icon"><img src="<?=base_url?>/assets/website/images/speaker.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
                     </div>
                     <div class="milestone_title">Audio Episodes</div>
                 </div>
@@ -69,7 +69,7 @@
                 <div class="milestone text-center">
                     <div class="milestone_content ml-auto mr-auto">
                         <div class="milestone_counter" data-end-value="2056">0</div>
-                        <div class="milestone_icon"><img src="/assets/website/images/film.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                        <div class="milestone_icon"><img src="<?=base_url?>/assets/website/images/film.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
                     </div>
                     <div class="milestone_title">Video Episodes</div>
                 </div>
@@ -80,7 +80,7 @@
                 <div class="milestone text-center">
                     <div class="milestone_content ml-auto mr-auto">
                         <div class="milestone_counter" data-end-value="25">0</div>
-                        <div class="milestone_icon"><img src="/assets/website/images/television.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
+                        <div class="milestone_icon"><img src="<?=base_url?>/assets/website/images/television.svg" alt="https://www.flaticon.com/authors/smashicons"></div>
                     </div>
                     <div class="milestone_title">Documentaries</div>
                 </div>
@@ -122,7 +122,7 @@
 <!-- Newsletter -->
 
 <div class="newsletter">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/newsletter.jpg" data-speed="0.8"></div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?=base_url?>/assets/website/images/newsletter.jpg" data-speed="0.8"></div>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -144,4 +144,4 @@
         </div>
     </div>
 </div>
-<script src="/assets/website/js/about.js"></script>
+<script src="<?=base_url?>/assets/website/js/about.js"></script>

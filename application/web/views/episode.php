@@ -1,6 +1,6 @@
 <!-- Home -->
-<link rel="stylesheet" type="text/css" href="/assets/website/styles/episode.css">
-<link rel="stylesheet" type="text/css" href="/assets/westyles/episode_responsive.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/episode.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/westyles/episode_responsive.css">
 <div class="home">
     <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?= $banner_url ?>" data-speed="0.8"></div>
     <div class="home_container">
@@ -32,13 +32,13 @@
 
                             <div class="show_info d-flex flex-row align-items-start justify-content-start">
                                 <div class="show_fav d-flex flex-row align-items-center justify-content-start">
-                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="/assets/website/images/heart.svg" alt=""></div>
+                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets/website/images/heart.svg" alt=""></div>
                                     <div class="show_fav_count"><?= $likes ?></div>
                                 </div>
                                 <div class="show_comments">
                                     <a href="#">
                                         <div class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="/assets/website/images/speech-bubble.svg" alt=""></div>
+                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets/website/images/speech-bubble.svg" alt=""></div>
                                             <div class="show_comments_count"><?= $comments ?> Comments</div>
                                         </div>
                                     </a>	

@@ -3,7 +3,7 @@
         <div class="row footer_logo_row">
             <div class="col d-flex flex-row align-items-center justify-content-center">
                 <div class="logo">
-                    <a href="#"><img src="/assets/website/images/logo.png" alt=""></a>
+                    <a href="#"><img src="<?=base_url?>/assets/website/images/logo.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -77,27 +77,27 @@
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="/assets/website/images/gallery_1_large.jpg"><img src="/assets/website/images/gallery_1.jpg" alt=""></a>
+                        <a class="colorbox" href="<?=base_url?>/assets/website/images/gallery_1_large.jpg"><img src="<?=base_url?>/assets/website/images/gallery_1.jpg" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="/assets/website/images/gallery_2_large.jpg"><img src="/assets/website/images/gallery_2.jpg" alt=""></a>
+                        <a class="colorbox" href="<?=base_url?>/assets/website/images/gallery_2_large.jpg"><img src="<?=base_url?>/assets/website/images/gallery_2.jpg" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="/assets/website/images/gallery_3_large.jpg"><img src="/assets/website/images/gallery_3.jpg" alt=""></a>
+                        <a class="colorbox" href="<?=base_url?>/assets/website/images/gallery_3_large.jpg"><img src="<?=base_url?>/assets/website/images/gallery_3.jpg" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="/assets/website/images/gallery_4_large.jpg"><img src="/assets/website/images/gallery_4.jpg" alt=""></a>
+                        <a class="colorbox" href="<?=base_url?>/assets/website/images/gallery_4_large.jpg"><img src="<?=base_url?>/assets/website/images/gallery_4.jpg" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="/assets/website/images/gallery_5_large.jpg"><img src="/assets/website/images/gallery_5.jpg" alt=""></a>
+                        <a class="colorbox" href="<?=base_url?>/assets/website/images/gallery_5_large.jpg"><img src="<?=base_url?>/assets/website/images/gallery_5.jpg" alt=""></a>
                     </div>
 
                 </div>
@@ -112,7 +112,7 @@
                         <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                         <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                        <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                        <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -126,17 +126,17 @@
 </div>
 
 
-<script src="/assets/website/styles/bootstrap-4.1.2/popper.js"></script>
-<script src="/assets/website/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
-<script src="/assets/website/plugins/greensock/TweenMax.min.js"></script>
-<script src="/assets/website/plugins/greensock/TimelineMax.min.js"></script>
-<script src="/assets/website/plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="/assets/website/plugins/greensock/animation.gsap.min.js"></script>
-<script src="/assets/website/plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="/assets/website/plugins/easing/easing.js"></script>
-<script src="/assets/website/plugins/colorbox/jquery.colorbox-min.js"></script>
-<script src="/assets/website/plugins/progressbar/progressbar.min.js"></script>
-<script src="/assets/website/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="/assets/website/js/custom.js"></script>
+<script src="<?=base_url?>/assets/website/styles/bootstrap-4.1.2/popper.js"></script>
+<script src="<?=base_url?>/assets/website/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/greensock/TweenMax.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/greensock/TimelineMax.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/greensock/animation.gsap.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/easing/easing.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/progressbar/progressbar.min.js"></script>
+<script src="<?=base_url?>/assets/website/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="<?=base_url?>/assets/website/js/custom.js"></script>
 </body>
 </html>

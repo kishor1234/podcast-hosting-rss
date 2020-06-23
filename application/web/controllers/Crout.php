@@ -41,7 +41,7 @@ class Crout extends CAaskController {
 
     public function index() {
         $this->create();
-       
+        
         if (isset($_REQUEST['r'])) {
             $moduleName = $this->encript->decdata($_REQUEST["r"]);
             //die($moduleName);

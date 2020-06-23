@@ -74,20 +74,20 @@ $response = $resp[0];
                                     </ul>
                                 </div>
                             </div>
-                            <div class="show_play_icon"><img src="/assets/website/images/play.svg" alt="https://www.flaticon.com/authors/cole-bemis"></div>
+                            <div class="show_play_icon"><img src="<?=base_url?>/assets/website/images/play.svg" alt="https://www.flaticon.com/authors/cole-bemis"></div>
                         </div>
                         <div class="show_content">
                             <div class="show_date"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= date("M d, Y", strtotime($response["onCreate"])) ?></a></div>
                             <div class="show_title"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["title"] ?></a></div>
                             <div class="show_info d-flex flex-row align-items-start justify-content-start">
                                 <div class="show_fav d-flex flex-row align-items-center justify-content-start">
-                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="/assets//website/images/heart.svg" alt=""></div>
+                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets//website/images/heart.svg" alt=""></div>
                                     <div class="show_fav_count"><?= $response["likes"] ?></div>
                                 </div>
                                 <div class="show_comments">
                                     <a href="#">
                                         <div class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="/assets/website/images/speech-bubble.svg" alt=""></div>
+                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets/website/images/speech-bubble.svg" alt=""></div>
                                             <div class="show_comments_count"><?= $response["comments"] ?> Comments</div>
                                         </div>
                                     </a>	

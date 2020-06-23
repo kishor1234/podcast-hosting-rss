@@ -25,18 +25,17 @@ define('ASETS', $full_url); //define('ASETS',$full_url."assets");
 $hostUrl = $_SERVER['HTTP_HOST'];
 define('HOSTURL', $full_url);
 $arrayHostUrl = explode('.', $hostUrl);
-if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")) {
-    $_SERVER['CI_ENV'] = "production";
-}
-$op = $arrayHostUrl[0];
-$application_folder = 'application';
-setlocale(LC_MONETARY, 'en_IN');
-define("SUB", $op);
-$_SESSION["t"] = 0;
 
-define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-switch (ENVIRONMENT) {
-    case 'development':
+if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")==0) {
+        define("live", true);
+        define("domain", "http://pixelatedegg.com/");
+        define("ADMINURL", "http://admin.pixelatedegg.com/");
+        define("game", "http://api.pixelatedegg.com/");
+        define("company", "podcast");
+        define("api_url", "http://api.pixelatedegg.com");
+        define("admin_url", "http://admin.pixelatedegg.com/");
+        define("noreplayid", "no-replay@pixelatedegg.com");
+}else{
         define("domain", "http://podcast.lcl/");
         define("ADMINURL", "http://admin.podcast.lcl/");
         define("game", "http://podcast.lcl/");
@@ -45,20 +44,24 @@ switch (ENVIRONMENT) {
         define("admin_url", "http://admin.podcast.lcl");
         define("noreplayid", "no-replay@aasksoft.com");
         define("live", false);
+}
+
+$op = $arrayHostUrl[0];
+$application_folder = 'application';
+setlocale(LC_MONETARY, 'en_IN');
+define("SUB", $op);
+$_SESSION["t"] = 0;
+
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+
+switch (ENVIRONMENT) {
+    case 'development':
         error_reporting(-1);
         ini_set('display_errors', 1);
         break;
 
     case 'testing':
     case 'production':
-        define("live", true);
-        define("domain", "http://pixelatedegg.com/");
-        define("ADMINURL", "http://admin.pixelatedegg.com/");
-        define("game", "http://api.pixelatedegg.com/");
-        define("company", "podcast");
-        define("api_url", "http://apipixelatedegg.com");
-        define("admin_url", "http://admin.pixelatedegg.com/");
-        define("noreplayid", "no-replay@pixelatedegg.com");
         ini_set('display_errors', 0);
         if (version_compare(PHP_VERSION, '5.3', '>=')) {
             error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
@@ -103,6 +106,7 @@ switch ($op) {
             $_REQUEST["r"] = $_REQUEST[1];
             $_REQUEST["v"] = $_REQUEST[2];
         }
+        define("base_url","http://pixelatedegg.com/deliberatetalks");
         $application_folder = 'application/web';
         break;
 }

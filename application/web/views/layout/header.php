@@ -5,13 +5,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="My Podcast template project">
+        <base href="<?=base_url?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="/assets/website/styles/bootstrap-4.1.2/bootstrap.min.css">
-        <link href="/assets/website/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="/assets/website/styles/main_styles.css">
-        <link rel="stylesheet" type="text/css" href="/assets/website/styles/responsive.css">
-        <script src="/assets/website/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/bootstrap-4.1.2/bootstrap.min.css">
+        <link href="<?=base_url?>/assets/website/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?=base_url?>/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/main_styles.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/responsive.css">
+        <script src="<?=base_url?>/assets/website/js/jquery-3.3.1.min.js"></script>
 
         <style>
             .audio-player{
@@ -33,7 +34,7 @@
 
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="/"><img src="/assets/website/images/logo.png" alt=""></a>
+                    <a href="/deliberatetalks"><img src="<?=base_url?>/assets/website/images/logo.png" alt=""></a>
                 </div>
 
                 <div class="container">
@@ -42,8 +43,8 @@
                             <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
-                                        <li><a href="/">Home</a></li>
-                                        <li><a href="/about/">About</a></li>
+                                        <li><a href="/deliberatetalks">Home</a></li>
+                                        <li><a href="/deliberatetalks/about/">About</a></li>
                                         <!--                                        <li><a href="episodes.html">Episodes</a></li>
                                                                                 <li><a href="blog.html">Blog</a></li>-->
                                         <!--                                        <li><a href="contact.html">Contact</a></li>-->
@@ -68,7 +69,7 @@
                             <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                            <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
 
@@ -83,8 +84,8 @@
             <div class="menu">
                 <div class="menu_content d-flex flex-column align-items-end justify-content-start">
                     <ul class="menu_nav_list text-right">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about/">About</a></li>
+                        <li><a href="/deliberatetalks">Home</a></li>
+                        <li><a href="/deliberatetalks/about/">About</a></li>
                         <!--                        <li><a href="episodes.html">Episodes</a></li>
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="contact.html">Contact</a></li>-->
@@ -98,7 +99,7 @@
                                 <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                                 <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                                <li><a href="/feed/"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                                <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
