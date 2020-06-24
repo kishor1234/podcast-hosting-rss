@@ -64,6 +64,9 @@ class userData extends CAaskController {
                 case "feePost":
                     $this->feePost();
                     break;
+                case "loadSubscriber":
+                    $this->loadSubscriber();
+                    break;
                 default :
                     //$this->lastPost();
                     break;
@@ -96,7 +99,7 @@ class userData extends CAaskController {
     }
 
     function feePost() {
-        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->whereSingle(array("userid" => $_POST["userid"]));// . $this->ask_mysqli->orderBy("DESC", "postid") . $this->ask_mysqli->limitwithoutoffset($_POST["limit"]);
+        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingle(array("userid" => $_POST["userid"])); // . $this->ask_mysqli->orderBy("DESC", "postid") . $this->ask_mysqli->limitwithoutoffset($_POST["limit"]);
         $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
         $array = array();
         while ($row = $result->fetch_assoc()) {
@@ -268,6 +271,51 @@ class userData extends CAaskController {
             echo $exc->getTraceAsString();
         }
         return $data;
+    }
+
+    function loadSubscriber() {
+        try {
+            $request = $_REQUEST;
+            $col = array(
+                0 => 'id',
+                1 => 'email',
+                2 => 'ip',
+                3 => 'isDate'                
+            );
+            $sql = $this->ask_mysqli->select("newsletter", $_SESSION["db_1"]);
+            //$sql .=$this->ask_mysqli->whereSingle(array("userid" => $_POST["id"]));
+            $query = $this->executeQuery($_SESSION["db_1"], $sql);
+            $totalData = $query->num_rows;
+            $totalFilter = $totalData;
+            // $sql .=$this->ask_mysqli->whereSingle(array("1" => "1"));
+            /* Search */
+            if (!empty($request['search']['value'])) {
+                $sql.=" AND (id Like '%" . $request['search']['value'] . "%'";
+                $sql.=" OR ip Like '%" . $request['search']['value'] . "%' ";
+                $sql.=" OR email Like '%" . $request['search']['value'] . "%' )";
+            }
+            /* Order */
+            $sql.=$this->ask_mysqli->orderBy($request['order'][0]['dir'], $col[$request['order'][0]['column']]) . $this->ask_mysqli->limitWithOffset($request['start'], $request['length']);
+            $query = $this->executeQuery($_SESSION["db_1"], $sql);
+            $totalData = $query->num_rows;
+            while ($row = $query->fetch_assoc()) {
+                $subdata = array();
+                $subdata[] = $row['id'];
+                $subdata[] = $row['email'];
+                $subdata[] = $row['ip'];
+                $subdata[] = $row['isDate'];
+                $data[] = $subdata;
+            }
+            $json_data = array(
+                "draw" => intval($request['draw']),
+                "recordsTotal" => intval($totalData),
+                "recordsFiltered" => intval($totalFilter),
+                "data" => $data,
+            );
+            echo json_encode($json_data);
+        } catch (Exception $ex) {
+            error_log($ex, 3, "error.log");
+        }
     }
 
     function loadTablePodcast() {

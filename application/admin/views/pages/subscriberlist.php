@@ -38,7 +38,7 @@
                         <div class="card-header">
                             <div class="card-title mb-2">
                                 <!-- Button to Open the Modal -->
-                                <button type="button" class="btn btn-primary" onclick="clickOnLink('/?r=link&v=createpost', '#app-container', false)">
+                                <button type="button" disabled="" class="btn btn-primary" onclick="clickOnLink('/?r=link&v=createpost', '#app-container', false)">
                                     Add New <i class="fas fa-plus"></i>
                                 </button>
 
@@ -52,24 +52,19 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Title</th>                                            
-                                            <th>Email</th>
-                                            <th>Image</th>
-                                            <th>Audio</th>
+                                            <th>Email</th>                                            
+                                            <th>IP</th>
                                             <th>Date</th>
-                                            <th class="datatable-nosort">Action</th>
+
 
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Title</th>                                            
-                                            <th>Email</th>
-                                            <th>Image</th>
-                                            <th>Audio</th>
+                                            <th>Email</th>                                            
+                                            <th>IP</th>
                                             <th>Date</th>
-                                            <th class="datatable-nosort">Action</th>
 
                                         </tr>
                                     </tfoot>
@@ -101,7 +96,7 @@
                 url: '<?= api_url ?>/?r=userData',
                 type: "post", // method  , by default get
                 dataType: "json",
-                data: {action: "loadTablePodcast", id:<?= $_SESSION["id"] ?>},
+                data: {action: "loadSubscriber"},
                 error: function () {  // error handling
                     $(".data-grid-error").html("");
                     $("#data-grid").append('<tbody class="data-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');

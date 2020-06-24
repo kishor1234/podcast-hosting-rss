@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>My Podcast</title>
+        <title>Deliberate Talks</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="My Podcast template project">
@@ -11,7 +11,7 @@
         <link href="<?=base_url?>/assets/website/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="<?=base_url?>/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
         <script src="<?=base_url?>/assets/website/js/jquery-3.3.1.min.js"></script>
-
+        <script src="<?=base_url?>/assets/plugins/jquerytoast/jquery.toaster.js" type="text/javascript"></script>
         <style>
             .audio-player{
                 width: 100% !important;
@@ -41,9 +41,9 @@
                             <div class="header_content d-flex flex-row align-items-center justify-content-start trans_400">
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
-                                        <li><a href="/deliberatetalks">Home</a></li>
+                                        <!--<li><a href="/deliberatetalks">Home</a></li>
                                         <li><a href="/deliberatetalks/about/">About</a></li>
-                                        <!--                                        <li><a href="episodes.html">Episodes</a></li>
+                                                                              <li><a href="episodes.html">Episodes</a></li>
                                                                                 <li><a href="blog.html">Blog</a></li>-->
                                         <!--                                        <li><a href="contact.html">Contact</a></li>-->
                                     </ul>
@@ -57,7 +57,7 @@
                 <div class="header_right d-flex flex-row align-items-start justify-content-start">
 
                     <!-- Submit -->
-                    <div class="submit"><a href="https://calendly.com/dakshinadyanthaya">Submit a Podcast</a></div>
+                    <div class="submit"><a href="https://calendly.com/dakshinadyanthaya">Book An Appointment</a></div>
 
                     <!-- Social -->
                     <div class="social">
@@ -82,14 +82,14 @@
             <div class="menu">
                 <div class="menu_content d-flex flex-column align-items-end justify-content-start">
                     <ul class="menu_nav_list text-right">
-                        <li><a href="/deliberatetalks">Home</a></li>
+                        <!--<li><a href="/deliberatetalks">Home</a></li>
                         <li><a href="/deliberatetalks/about/">About</a></li>
-                        <!--                        <li><a href="episodes.html">Episodes</a></li>
+                                                <li><a href="episodes.html">Episodes</a></li>
                                                 <li><a href="blog.html">Blog</a></li>
                                                 <li><a href="contact.html">Contact</a></li>-->
                     </ul>
                     <div class="menu_extra d-flex flex-column align-items-end justify-content-start">
-                        <div class="menu_submit"><a href="https://calendly.com/dakshinadyanthaya">Submit a Podcast</a></div>
+                        <div class="menu_submit"><a href="https://calendly.com/dakshinadyanthaya">Book An Appointment</a></div>
                         <div class="social">
                             <ul class="d-flex flex-row align-items-start justify-content-start">
                                 <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
