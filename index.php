@@ -34,6 +34,7 @@ if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")==0) {
         define("company", "podcast");
         define("api_url", "http://api.pixelatedegg.com");
         define("admin_url", "http://admin.pixelatedegg.com/");
+        define("base_url","http://pixelatedegg.com/deliberatetalks");
         define("noreplayid", "no-replay@pixelatedegg.com");
 }else{
         define("domain", "http://podcast.lcl/");
@@ -43,6 +44,7 @@ if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")==0) {
         define("api_url", "http://api.podcast.lcl");
         define("admin_url", "http://admin.podcast.lcl");
         define("noreplayid", "no-replay@aasksoft.com");
+        define("base_url","http://podcast.lcl");
         define("live", false);
 }
 
@@ -101,12 +103,12 @@ switch ($op) {
 
     default :
         $_REQUEST = explode('/', parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH));
-        if (!empty($_REQUEST[1])) {
+        if (!empty($_REQUEST[1])&&!empty($_REQUEST[2])) {
             unset($_REQUEST[0]);
             $_REQUEST["r"] = $_REQUEST[1];
             $_REQUEST["v"] = $_REQUEST[2];
         }
-        define("base_url","http://pixelatedegg.com/deliberatetalks");
+        
         $application_folder = 'application/web';
         break;
 }

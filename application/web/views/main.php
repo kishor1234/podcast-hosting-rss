@@ -1,4 +1,7 @@
 <!-- Home -->
+<link rel="stylesheet" type="text/css" href="<?= base_url ?>/assets/website/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url ?>/assets/website/styles/responsive.css">
+
 <?php
 $resp = json_decode($main->jsonRespon(api_url . "/?r=userData", array("action" => "lastPost", "limit" => 1)), true);
 //print_r($response);
@@ -35,7 +38,7 @@ $response = $resp[0];
                                 <li><a href="#"><?= $response["comments"] ?> Comments</a></li>
                             </ul>
                         </div>
-                        
+
                         <div class="track track_home" >
                             <audio controls class="audio-player">
                                 <source src="<?= $response["file_url"] ?>" type="<?= $response["file_type"] ?>">
@@ -43,7 +46,7 @@ $response = $resp[0];
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
-                        <div class="button_border home_button trans_200"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>">More Info</a></div>
+                        <div class="button_border home_button trans_200"><a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>">More Info</a></div>
                     </div>
                 </div>
             </div>
@@ -64,30 +67,30 @@ $response = $resp[0];
                 <div class="col-lg-4">
                     <div class="show">
                         <div class="show_image">
-                            <a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>">
+                            <a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>">
                                 <img src="<?= $response["image_url"] ?>" class="imag-resp" alt="https://unsplash.com/@icons8">
                             </a>
                             <div class="show_tags">
                                 <div class="tags">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
-                                        <li><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["categories"] ?></a></li>
+                                        <li><a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>"><?= $response["categories"] ?></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="show_play_icon"><img src="<?=base_url?>/assets/website/images/play.svg" alt="https://www.flaticon.com/authors/cole-bemis"></div>
+                            <div class="show_play_icon"><img src="<?= base_url ?>/assets/website/images/play.svg" alt="https://www.flaticon.com/authors/cole-bemis"></div>
                         </div>
                         <div class="show_content">
-                            <div class="show_date"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= date("M d, Y", strtotime($response["onCreate"])) ?></a></div>
-                            <div class="show_title"><a href="/deliberatetalks/episode/<?=str_replace(" ","-",$response["title"]);?>"><?= $response["title"] ?></a></div>
+                            <div class="show_date"><a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>"><?= date("M d, Y", strtotime($response["onCreate"])) ?></a></div>
+                            <div class="show_title"><a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>"><?= $response["title"] ?></a></div>
                             <div class="show_info d-flex flex-row align-items-start justify-content-start">
                                 <div class="show_fav d-flex flex-row align-items-center justify-content-start">
-                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets//website/images/heart.svg" alt=""></div>
+                                    <div class="show_fav_icon show_info_icon"><img class="svg" src="<?= base_url ?>/assets//website/images/heart.svg" alt=""></div>
                                     <div class="show_fav_count"><?= $response["likes"] ?></div>
                                 </div>
                                 <div class="show_comments">
                                     <a href="#">
                                         <div class="d-flex flex-row align-items-center justify-content-start">
-                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="<?=base_url?>/assets/website/images/speech-bubble.svg" alt=""></div>
+                                            <div class="show_comments_icon show_info_icon"><img class="svg" src="<?= base_url ?>/assets/website/images/speech-bubble.svg" alt=""></div>
                                             <div class="show_comments_count"><?= $response["comments"] ?> Comments</div>
                                         </div>
                                     </a>	
@@ -109,4 +112,4 @@ $response = $resp[0];
         </div>
     </div>
 </div>
-
+<script src="<?= base_url ?>/assets/website/js/custom.js"></script>

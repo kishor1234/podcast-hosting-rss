@@ -109,9 +109,9 @@
                     <ul class="d-flex flex-row align-items-center justify-content-center">
                         <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+<!--                        <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                        <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>-->
                         <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
@@ -119,7 +119,7 @@
         </div>
 
         </br></br>
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://aasksoft.com" target="_blank">@askSoft</a>
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://pixelatedegg.com/" target="_blank">Pixelatedegg</a>
 
     </div>
 </footer>
@@ -137,6 +137,6 @@
 <script src="<?=base_url?>/assets/website/plugins/colorbox/jquery.colorbox-min.js"></script>
 <script src="<?=base_url?>/assets/website/plugins/progressbar/progressbar.min.js"></script>
 <script src="<?=base_url?>/assets/website/plugins/parallax-js-master/parallax.min.js"></script>
-<script src="<?=base_url?>/assets/website/js/custom.js"></script>
+
 </body>
 </html>

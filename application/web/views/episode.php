@@ -1,6 +1,6 @@
 <!-- Home -->
 <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/episode.css">
-<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/westyles/episode_responsive.css">
+<link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/episode_responsive.css">
 <div class="home">
     <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?= $banner_url ?>" data-speed="0.8"></div>
     <div class="home_container">
@@ -234,5 +234,5 @@
         </div>
     </div>
 </div>
-
+<script src="<?=base_url?>/assets/website/js/episode.js"></script>
 <!-- Footer -->

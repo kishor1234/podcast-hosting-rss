@@ -10,8 +10,6 @@
         <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/bootstrap-4.1.2/bootstrap.min.css">
         <link href="<?=base_url?>/assets/website/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="<?=base_url?>/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/main_styles.css">
-        <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/responsive.css">
         <script src="<?=base_url?>/assets/website/js/jquery-3.3.1.min.js"></script>
 
         <style>
@@ -66,9 +64,9 @@
                         <ul class="d-flex flex-row align-items-start justify-content-start">
                             <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+<!--                            <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>-->
                             <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
@@ -96,8 +94,8 @@
                             <ul class="d-flex flex-row align-items-start justify-content-start">
                                 <li><a href="https://www.facebook.com/deliberatetalks"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                 <li><a href="https://www.instagram.com/deliberatetalks/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+<!--                                <li><a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>-->
                                 <li><a href="https://www.youtube.com/pixelatedegg"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                                 <li><a href="/deliberatetalks/feed.xml"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                             </ul>
