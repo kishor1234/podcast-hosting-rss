@@ -2,9 +2,9 @@ ErrorDocument 404 http://pixelatedegg.com/deliberatetalks/404/
 ErrorDocument 500 http://pixelatedegg.com/deliberatetalks/500/
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /deliberatetalks/
+RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /deliberatetalks/index.php [L]
+RewriteRule . /index.php [L]
 </IfModule>
