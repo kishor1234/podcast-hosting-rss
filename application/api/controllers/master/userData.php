@@ -222,7 +222,7 @@ class userData extends CAaskController {
         if (empty($_POST["tags"])) {
             $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->orderBy("DESC", "postid");
         } else {
-            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->where(array("tags" => $_POST["tags"], "categories" => $_POST["tags"]), "OR") . $this->ask_mysqli->orderBy("DESC", "postid");
+            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingleLike(array("tags" => $_POST["tags"])) . $this->ask_mysqli->orderBy("DESC", "postid");
         }
         $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
         $data = array();

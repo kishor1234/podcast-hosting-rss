@@ -34,11 +34,11 @@
                 <div><a href="mailto:dakshin@pixelatedegg.com" class="mail">dakshin@pixelatedegg.com</a></div>
                 <div class="footer_list_">
                     <div class="log">
-                        <img src="/assets/website/logo/spotify.png" class="logo-footer" alt=""/>
-                        <img src="/assets/website/logo/google.png" class="logo-footer" alt=""/>
-                        <img src="/assets/website/logo/castbox.png" class="logo-footer" alt=""/>
-                        <img src="/assets/website/logo/youtube.png" class="logo-footer" alt=""/>
-                        <img src="/assets/website/logo/apple.png" class="logo-footer" alt=""/>
+                        <img src="<?= base_url ?>/assets/website/logo/spotify.png" class="logo-footer" alt=""/>
+                        <img src="<?= base_url ?>/assets/website/logo/google.png" class="logo-footer" alt=""/>
+                        <img src="<?= base_url ?>/assets/website/logo/castbox.png" class="logo-footer" alt=""/>
+                        <img src="<?= base_url ?>/assets/website/logo/youtube.png" class="logo-footer" alt=""/>
+                        <img src="<?= base_url ?>/assets/website/logo/apple.png" class="logo-footer" alt=""/>
                     </div>
                 </div>
             </div>

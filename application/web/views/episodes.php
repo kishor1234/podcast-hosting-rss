@@ -1,9 +1,9 @@
-<link rel="stylesheet" type="text/css" href="/assets/website/styles/episodes.css">
-<link rel="stylesheet" type="text/css" href="/assets/website/styles/episodes_responsive.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url ?>/assets/website/styles/episodes.css">
+<link rel="stylesheet" type="text/css" href="<?= base_url ?>/assets/website/styles/episodes_responsive.css">
 <!-- Home -->
 
 <div class="home">
-    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/assets/website/images/about.jpg" data-speed="0.8"></div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="<?= base_url ?>/assets/website/images/about.jpg" data-speed="0.8"></div>
     <div class="home_container d-flex flex-column align-items-center justify-content-center">
         <div class="home_content">
             <div class="home_title"><h1>episodes</h1></div>
@@ -196,8 +196,8 @@
     }
 
 </style>
-<script src="/assets/website/js/episodes.js"></script>
-<script src="/assets/website/new plugins/jquery.simplePagination.js" type="text/javascript"></script>
+<script src="<?= base_url ?>/assets/website/js/episodes.js"></script>
+<script src="<?= base_url ?>/assets/website/new plugins/jquery.simplePagination.js" type="text/javascript"></script>
 <script>
 // jQuery Plugin: http://flaviusmatis.github.io/simplePagination.js/
     $(document).ready(function () {
