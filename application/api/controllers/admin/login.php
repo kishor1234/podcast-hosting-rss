@@ -82,7 +82,7 @@ class login extends CAaskController {
             $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
             if ($row = $result->fetch_assoc()) {
                 if (password_verify($postData["password"], $row["password"])) {
-                    $data = array("message" => "success", "_id" => $row["id"], "email" => $row["email"]);
+                    $data = array("message" => "success", "_id" => $row["id"], "email" => $row["email"],"name" => $row["name"]);
                 } else {
                     $data = null;
                 }

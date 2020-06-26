@@ -585,7 +585,7 @@ class CAaskController extends CI_Controller {
     function uploadFiletoFileSystem($image, $uploadDir) {
         if (isset($_FILES[$image]) && $_FILES[$image]["error"] == UPLOAD_ERR_OK) {
             $tmpFile = $_FILES[$image]["tmp_name"];
-            $name = time() . '-' . $_FILES[$image]['name'];
+            $name = time() . '-' . str_replace(" ","-",$_FILES[$image]['name']);
             $filename = $uploadDir . '/' . $name;
             $path = getcwd() . "/" . $filename;
             move_uploaded_file($tmpFile, $path);
@@ -602,7 +602,7 @@ class CAaskController extends CI_Controller {
     function uploadAudioFiletoFileSystem($image, $uploadDir) {
         if (isset($_FILES[$image]) && $_FILES[$image]["error"] == UPLOAD_ERR_OK) {
             $tmpFile = $_FILES[$image]["tmp_name"];
-            $name = time() . '-' . $_FILES[$image]['name'];
+            $name = time() . '-' . str_replace(" ","-",$_FILES[$image]['name']);
             $filename = $uploadDir . '/' . $name;
             $path = getcwd() . "/" . $filename;
             move_uploaded_file($tmpFile, $path);

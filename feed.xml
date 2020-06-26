@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0" version="2.0">
+    <channel>
+        <title>my Podcast</title>
+        <link>http://admin.podcast.lcl/</link>
+        <language>en-us</language>
+        <copyright>℗ 2020 Copyright kishor shinde</copyright>
+        <googleplay:author>kishor shinde</googleplay:author>
+        <googleplay:description>A channel may contain any number of  present.</googleplay:description>
+        <description>A channel may contain any number of  present.</description>
+        <googleplay:email>kishor4shinde@gmail.com</googleplay:email>
+        <googleplay:image href = "http://podcast.lcl/assets/upload/profile/1592664402-episode_2.jpg" />
+        <googleplay:category text = "Technology"/>
+        <item>
+            <googleplay:author>kishor shinde</googleplay:author>
+            <googleplay:description>There is no delete keyword or function in the PHP language. If you arrived at this page seeking to delete a file, try unlink(). To delete a variable from the local scope, check out unset().</googleplay:description>
+            <googleplay:image href = "http://podcast.lcl/assets/upload/profile/1592669825-episode_2.jpg" />
+            <enclosure url = "http://podcast.lcl/assets/upload/profile/1592669825-bensound-betterdays.mp3" length = "2320111" type = "audio/mpeg" />
+            <guid>http://podcast.lcl/assets/upload/profile/1592669825-bensound-betterdays.mp3</guid>
+            <pubDate>Sat, Jun 20, 2020 21:05:47 IST</pubDate>
+        </item>
+        <item>
+            <googleplay:author>kishor shinde</googleplay:author>
+            <googleplay:description>Feel my pain and I do your `keeping the `
+                When I`m mad at you
+                With the piece out there we can go cleaning and 
+                No one will know where we`ve been</googleplay:description>
+            <googleplay:image href = "http://podcast.lcl/assets/upload/profile/1592686338-episode_1.jpg" />
+            <enclosure url = "http://podcast.lcl/assets/upload/profile/1592686338-bensound-betterdays.mp3" length = "2320111" type = "audio/mpeg" />
+            <guid>http://podcast.lcl/assets/upload/profile/1592686338-bensound-betterdays.mp3</guid>
+            <pubDate>Sun, Jun 21, 2020 02:18:22 IST</pubDate>
+        </item>
+        <item>
+            <googleplay:author>kishor shinde</googleplay:author>
+            <googleplay:description>Indian classical music is the classical music of the Indian subcontinent, this includes India, Pakistan, Bangladesh, Sri Lanka and Nepal.[1] It has two major traditions: the North Indian and Pakistani classical music tradition is called Hindustani, while the South Indian and Sri Lankan expression is</googleplay:description>
+            <googleplay:image href = "http://podcast.lcl/assets/upload/profile/1592691995-episode_4.jpg" />
+            <enclosure url = "http://podcast.lcl/assets/upload/profile/1592691996-bensound-betterdays.mp3" length = "2320111" type = "audio/mpeg" />
+            <guid>http://podcast.lcl/assets/upload/profile/1592691996-bensound-betterdays.mp3</guid>
+            <pubDate>Sun, Jun 21, 2020 03:36:56 IST</pubDate>
+        </item>
+    </channel>
+</rss>

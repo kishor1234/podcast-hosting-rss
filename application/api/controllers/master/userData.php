@@ -67,6 +67,24 @@ class userData extends CAaskController {
                 case "loadSubscriber":
                     $this->loadSubscriber();
                     break;
+                case "ViewCount":
+                    $this->ViewCount();
+                    break;
+                case "comments":
+                    $this->comments();
+                    break;
+                case "loadComments":
+                    $this->loadComments();
+                    break;
+                case "replaycomments":
+                    $this->replaycomments();
+                    break;
+                case "approveComment":
+                    $this->approveComment();
+                    break;
+                case "AllPost":
+                    $this->AllPost();
+                    break;
                 default :
                     //$this->lastPost();
                     break;
@@ -128,13 +146,108 @@ class userData extends CAaskController {
         echo json_encode($array);
     }
 
+    function approveComment() {
+        $error = array();
+        $this->adminDB[$_SESSION["db_1"]]->autocommit(false);
+        if (isset($_POST)) {
+            unset($_POST["action"]);
+            $sql = $this->ask_mysqli->update(array("isActive" => $_POST["isActive"]), "comment") . $this->ask_mysqli->whereSingle(array("id" => $this->filterPost("id")));
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, "Error CT ", $this->adminDB[$_SESSION["db_1"]]->error) : true;
+        } else {
+            array_push($error, "invalid post");
+        }
+        if (empty($error)) {
+            $this->adminDB[$_SESSION["db_1"]]->commit();
+            echo json_encode(array("toast" => array("success", "Post Comment ", "Success....."), "status" => 1, "message" => "Success"));
+        } else {
+            $this->adminDB[$_SESSION["db_1"]]->rolback();
+            echo json_encode(array("toast" => array("danger", "Post Comment", "Failed..... " . $error), "status" => 0, "message" => "Failed " . $error));
+        }
+    }
+
+    function replaycomments() {
+        $error = array();
+        $this->adminDB[$_SESSION["db_1"]]->autocommit(false);
+        if (isset($_POST)) {
+            unset($_POST["action"]);
+            $data = array_merge($_POST, array("ip" => $_SERVER["REMOTE_ADDR"]));
+            $sql = $this->ask_mysqli->insert("comment", $data);
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, "Error ", $this->adminDB[$_SESSION["db_1"]]->error) : true;
+            $tid = $this->adminDB[$_SESSION["db_1"]]->insert_id;
+            $sql = $this->ask_mysqli->updateINC(array("comments" => 1), "post") . $this->ask_mysqli->whereSingle(array("postid" => $this->filterPost("postid")));
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, "Error CT ", $this->adminDB[$_SESSION["db_1"]]->error) : true;
+        } else {
+            array_push($error, "invalid post");
+        }
+        if (empty($error)) {
+            $this->adminDB[$_SESSION["db_1"]]->commit();
+            echo json_encode(array("toast" => array("success", "Post Comment ", "Success....."), "status" => 1, "message" => "Success"));
+        } else {
+            $this->adminDB[$_SESSION["db_1"]]->rolback();
+            echo json_encode(array("toast" => array("danger", "Post Comment", "Failed..... " . $error), "status" => 0, "message" => "Failed " . $error));
+        }
+    }
+
+    function comments() {
+        $error = array();
+        $this->adminDB[$_SESSION["db_1"]]->autocommit(false);
+        if (isset($_POST)) {
+            unset($_POST["action"]);
+            $data = array_merge($_POST, array("ip" => $_SERVER["REMOTE_ADDR"]));
+            $sql = $this->ask_mysqli->insert("comment", $data);
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, "Error ", $this->adminDB[$_SESSION["db_1"]]->error) : true;
+            $tid = $this->adminDB[$_SESSION["db_1"]]->insert_id;
+            $sql = $this->ask_mysqli->updateINC(array("comments" => 1), "post") . $this->ask_mysqli->whereSingle(array("postid" => $this->filterPost("postid")));
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, "Error CT ", $this->adminDB[$_SESSION["db_1"]]->error) : true;
+        } else {
+            array_push($error, "invalid post");
+        }
+        if (empty($error)) {
+            $this->adminDB[$_SESSION["db_1"]]->commit();
+            echo json_encode(array("toast" => array("success", "Post Comment ", "Success....."), "status" => 1, "message" => "Success"));
+        } else {
+            $this->adminDB[$_SESSION["db_1"]]->rolback();
+            echo json_encode(array("toast" => array("danger", "Post Comment", "Failed..... " . $error), "status" => 0, "message" => "Failed " . $error));
+        }
+    }
+
+    function ViewCount() {
+        $sql = $this->ask_mysqli->updateINC(array("likes" => 1), "post") . $this->ask_mysqli->whereSingle(array("title" => $_POST["title"]));
+        echo json_encode(array($sql));
+        $this->adminDB[$_SESSION["db_1"]]->query($sql);
+    }
+
+    function AllPost() {
+        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->orderBy("DESC", "postid");
+        if (empty($_POST["tags"])) {
+            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->orderBy("DESC", "postid");
+        } else {
+            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->where(array("tags" => $_POST["tags"], "categories" => $_POST["tags"]), "OR") . $this->ask_mysqli->orderBy("DESC", "postid");
+        }
+        $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
+            array_push($data, $row);
+            $sql = $this->ask_mysqli->select("comment", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingle(array("postid" => $row["postid"])) . $this->ask_mysqli->orderBy("DESC", "postid") . $this->ask_mysqli->limitwithoutoffset(10);
+        }
+        echo json_encode($data);
+    }
+
     function SinglePost() {
 
         $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingle(array("title" => $_POST["title"])) . $this->ask_mysqli->orderBy("DESC", "postid") . $this->ask_mysqli->limitwithoutoffset($_POST["limit"]);
         $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
         $array = array();
         if ($row = $result->fetch_assoc()) {
-            echo json_encode($row);
+            $data = $row;
+            $sql = $this->ask_mysqli->select("comment", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingle(array("postid" => $row["postid"])) . $this->ask_mysqli->orderBy("DESC", "postid") . $this->ask_mysqli->limitwithoutoffset(10);
+            $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
+            $comment = array();
+            while ($row = $result->fetch_assoc()) {
+                array_push($comment, $row);
+            }
+            $data["comment"] = $comment;
+            echo json_encode($data);
         }
         // echo json_encode($array);
     }
@@ -273,6 +386,61 @@ class userData extends CAaskController {
         return $data;
     }
 
+    function loadComments() {
+        try {
+            $request = $_REQUEST;
+            $col = array(
+                0 => 'id',
+                1 => 'postid',
+                2 => 'email',
+                3 => 'name',
+                4 => 'message'
+            );
+            $sql = $this->ask_mysqli->select("comment", $_SESSION["db_1"]);
+            //$sql .=$this->ask_mysqli->whereSingle(array("userid" => $_POST["id"]));
+            $query = $this->executeQuery($_SESSION["db_1"], $sql);
+            $totalData = $query->num_rows;
+            $totalFilter = $totalData;
+            // $sql .=$this->ask_mysqli->whereSingle(array("1" => "1"));
+            /* Search */
+            if (!empty($request['search']['value'])) {
+                $sql.=" AND (id Like '%" . $request['search']['value'] . "%'";
+                $sql.=" OR name Like '%" . $request['search']['value'] . "%' ";
+                $sql.=" OR email Like '%" . $request['search']['value'] . "%' )";
+            }
+            /* Order */
+            $sql.=$this->ask_mysqli->orderBy($request['order'][0]['dir'], $col[$request['order'][0]['column']]) . $this->ask_mysqli->limitWithOffset($request['start'], $request['length']);
+            $query = $this->executeQuery($_SESSION["db_1"], $sql);
+            $totalData = $query->num_rows;
+            while ($row = $query->fetch_assoc()) {
+                $subdata = array();
+                $subdata[] = $row['postid'];
+                $subdata[] = $row['email'];
+                $subdata[] = $row['name'];
+                $subdata[] = $row['message'];
+                $subdata[] = $row['isDate'];
+                if ($row["isActive"] == 1) {
+                    $active = '<button onclick="unapproveComment(' . $row["id"] . ',0)" class="btn btn-danger btn-xs"> <i class="fa fa-thumbs-down"></i> </button> &nbsp;';
+                } else {
+                    $active = '<button onclick="approveComment(' . $row["id"] . ',0)" class="btn btn-success btn-xs"> <i class="fa fa-thumbs-up"></i> </button> &nbsp;';
+                }
+                $active .= '<button onclick="replayComment(' . $row["id"] . ',' . $row["postid"] . ')" class="btn btn-primary btn-xs"> <i class="fa fa-reply"></i> </button>';
+
+                $subdata[] = $active;
+                $data[] = $subdata;
+            }
+            $json_data = array(
+                "draw" => intval($request['draw']),
+                "recordsTotal" => intval($totalData),
+                "recordsFiltered" => intval($totalFilter),
+                "data" => $data,
+            );
+            echo json_encode($json_data);
+        } catch (Exception $ex) {
+            error_log($ex, 3, "error.log");
+        }
+    }
+
     function loadSubscriber() {
         try {
             $request = $_REQUEST;
@@ -280,7 +448,7 @@ class userData extends CAaskController {
                 0 => 'id',
                 1 => 'email',
                 2 => 'ip',
-                3 => 'isDate'                
+                3 => 'isDate'
             );
             $sql = $this->ask_mysqli->select("newsletter", $_SESSION["db_1"]);
             //$sql .=$this->ask_mysqli->whereSingle(array("userid" => $_POST["id"]));

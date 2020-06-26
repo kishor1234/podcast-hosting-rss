@@ -63,7 +63,7 @@
             }
             function setSession(obj)
             {
-                $.post("/?r=C_SetSession", {"email": obj.email, "id": obj._id}, function (data) {
+                $.post("/?r=C_SetSession", obj, function (data) {
                     console.log(data);
                 });
             }

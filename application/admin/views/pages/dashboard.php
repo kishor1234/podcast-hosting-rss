@@ -1,149 +1,241 @@
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <!-- Content Header (Page header) -->
-    <?= $main->isLoadView(array("header" => "webheader", "main" => "banner", "footer" => "webfooter", "error" => "page_404"), false, array("title" => $title, "link" => $link)); ?>
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark breadcrumb"><?= $title ?></h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <?php
+                        foreach ($link as $key => $val) {
+                            echo "<li class=\"breadcrumb-item active\"><a href=\"{$val}\">$key</a></li>";
+                        }
+                        ?>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
     <!-- /.content-header -->
-    <!-- /.content-header -->
+    <style>
+        #color-red{
+            color: red;
+        }
+        #color-green{
+            color:green;
+        }
+    </style>
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <!-- Info boxes -->
             <div class="row">
-               
-            </div>
-            <div class="row">
-                <style>
-                    #center{
-                        text-align: center;
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                </style>
-                <div class="col-8 offset-2">
-                    <div id="center">
-                        
+                <div class="col-lg-12">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <div class="card-title mb-2">
+                                <!-- Button to Open the Modal -->
+                                <button type="button" disabled="" class="btn btn-primary" onclick="clickOnLink('/?r=link&v=createpost', '#app-container', false)">
+                                    Add New <i class="fas fa-plus"></i>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+
+                            <div class="card-text">
+                                <table class="stripe hover display responsive nowrap" id="myTable" cellspacing='0'>
+                                    <thead>
+                                        <tr>
+                                            <th>Post ID</th>
+                                            <th>Email</th>                                            
+                                            <th>Name</th>
+                                            <th>Comments</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Post ID</th>
+                                            <th>Email</th>                                            
+                                            <th>Name</th>
+                                            <th>Comments</th>
+                                            <th>Date</th>
+                                            <th>Action</th>
+
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
 </div>
-
-<div class="modal fade preview-modal" data-backdrop="" id="myMain" role="dialog" aria-labelledby="preview-modal" aria-hidden="true">
-
+<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
+
+        <!-- Modal content-->
         <div class="modal-content">
-
-            <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Update Result Percentage</h4>
+                <h4 class="modal-title"><?= $_SESSION["name"] ?> Replay Comment</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
 
-            <!-- Modal body -->
+            </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <form action="#" method="post" id="myMainResultPer">
-                            <div class="form-group">
-                                <label class="form-control-label">Result Percentage <span class="text-danger">*</span></label>
-                                <input type="text" name="resultper" id="resultper" placeholder="Enter Message" title="Message" required autocomplete="off" class="form-control">
-                                <span id="error_name" class=""></span>
-                            </div>
-                            <div class="form-group">
-                                <input type="hidden" name="action" id="action" value="updateper">
-                                <input type="hidden" id="id" name="id" value="<?= $_SESSION["id"] ?>">
-                                <button class="btn btn-primary btn-sm form-control" id="myMainSubmitPer">Update</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <form action="javascript:void(0)" method="post" name="comment_form" id="comment_form">
+                    <label>Message</label>
+                    <textarea class="form-control" name="message" id="message" placeholder="Message here"></textarea>
+                    <br>
+                    <input type="hidden" name="name" value="<?= $_SESSION["name"] ?>">
+                    <input type="hidden" name="email" value="<?= $_SESSION["email"] ?>">
+                    <input type="hidden" name="comment_parent" id="id">
+                    <input type="hidden" name="postid" id="postid">
+                    <input type="hidden" name="isActive" value="1">
+                    <input type="hidden" name="action" value="replaycomments">
 
-                <br>
-                <div class="progress" id="progress">
-                    <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" id="inner-progress mainpro1">Please wait....</div>
-                </div>
+                    <button class="btn btn-primary btn-sm">Submit</button>
+                </form>
             </div>
-
-            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-
         </div>
+
     </div>
 </div>
-<script>
-//    $("document").ready(function () {
-//        //report();
-//        $("#myMainResultPer").submit(function () {
-//            $("#myMainSubmitPer").attr("disabled", true);
-//            var formdata = new FormData($("#myMainResultPer")[0]);
-//            $.ajax({
-//                url: '<?= api_url ?>/?r=CAddUser',
-//                type: 'post',
-//                data: formdata,
-//                enctype: "multipart/form-data",
-//                contentType: false,
-//                cache: false,
-//                processData: false,
-//                xhr: function () {
-//                    $("#mainloadimg").show();
-//                    $("#progress").show();
-//                    var xhr = new XMLHttpRequest();
-//                    xhr.upload.addEventListener('progress', function (e) {
-//                        var progressbar = Math.round((e.loaded / e.total) * 100);
-//                        $("#mainpro1").css('width', progressbar + '%');
-//                        $("#mainpro1").html(progressbar + '%');
-//                    });
-//                    return xhr;
-//                },
-//                success: function (data) {
-//                    console.log(data);
-//                    $("#myMainSubmit").attr("disabled", false);
-//                    $("#mainloadimg").hide();
-//                    var json = JSON.parse(data);
-//                    if (json.status === 1) {
-//                        swal("Success", json.message, "success");
-//
-//
-//                    } else {
-//                        swal("Error", json.message, "error");
-//                    }
-//                    $('#myMainResultPer')[0].reset();
-//                    $.toaster({priority: json.toast[0], title: json.toast[1], message: json.toast[2]});
-//                    $("#mainpro1").css('width', '0%');
-//                    $("#mainpro1").html('0%');
-//                    $("#progress").hide();
-//                    report();
-//                },
-//                error: function (xhr, error, code)
-//                {
-//                    console.log(xhr);
-//                    console.log(code);
-//                }
-//            });
-//            return false;
-//        });
-//    });
-//    function report() {
-//        $.post("<?= api_url ?>?r=CAddUser", {action: "adminBalance"}, function (data) {
-//            console.log(data);
-//            var js = JSON.parse(data);
-//            $("#compaines").html(js[1]);
-//            $("#colleges").html(js[0]);
-//            $("#students").html(js[2]);
-//            $("#exams").html(js[3]);
-//            $("#per").html(js[4] + "%");
-//        });
-//    }
-//    function ResultServices(id)
-//    {
-//        $.post("<?= api_url ?>?r=CStartorStop", {cron: id}, function (data) {
-//            $("#center").html(data);
-//        });
-//    }
+
+<!-- /.content-wrapper -->
+<script type="text/javascript">
+    var table;
+    var edit;
+    $(document).ready(function () {
+        $("#comment_form").submit(function (e) {
+            e.preventDefault();
+            $("#submit").attr("disabled", true);
+            var formdata = new FormData($("#comment_form")[0]);
+            $.ajax({
+                type: 'POST',
+                url: '<?= api_url ?>/?r=userData',
+                data: formdata,
+                contentType: false,
+                processData: false, xhr: function () {
+                    var xhr = new XMLHttpRequest();
+                    xhr.upload.addEventListener('progress', function (e) {
+                        var progressbar = Math.round((e.loaded / e.total) * 100);
+                    });
+                    return xhr;
+                },
+                success: function (data) {
+                    $("#submit").attr("disabled", false);
+                    console.log(data);
+                    var json = JSON.parse(data);
+                    $.toaster({priority: json.toast[0], title: json.toast[1], message: json.toast[2]});
+                    $("#comment_form")[0].reset();
+                    table.ajax.reload(null, false);
+                },
+                error: function (request, status, error) {
+                    //printMessage("Error on " + error, "danger", ".msg");
+                    $("#comment_form")[0].reset();
+                    //progressHide()
+                }
+            });
+            console.log("Validation Success send form");
+
+        });
+        table = $('#myTable').DataTable({
+            serverSide: true,
+            Processing: true,
+            order: [[0, "desc"]],
+            ajax: {
+                url: '<?= api_url ?>/?r=userData',
+                type: "post", // method  , by default get
+                dataType: "json",
+                data: {action: "loadComments"},
+                error: function () {  // error handling
+                    $(".data-grid-error").html("");
+                    $("#data-grid").append('<tbody class="data-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+                    $("#data-grid_processing").css("display", "none");
+                }
+            },
+            scrollCollapse: true,
+            autoWidth: false,
+            responsive: true,
+            columnDefs: [{
+                    targets: "datatable-nosort",
+                    orderable: false
+                }],
+            lengthMenu: [[5, 25, 50, -1], [5, 25, 50, "All"]],
+            language: {
+                info: "_START_-_END_ of _TOTAL_ entries",
+                searchPlaceholder: "Search"
+            }
+        });
+
+
+    });
+
+
+    function approveComment(id, st)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "want to Approve comment?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, Approve it!",
+            closeOnConfirm: true
+        },
+        function () {
+            $.post('<?= api_url ?>/?r=userData', {id: id, st: st, action: 'approveComment', isActive: '1'}, function (data) {
+                console.log(data);
+                table.ajax.reload(null, false);
+                var json = JSON.parse(data);
+                $.toaster({priority: json.toast[0], title: json.toast[1], message: json.toast[2]});
+
+            });
+
+        });
+    }
+    function unapproveComment(id, st)
+    {
+        swal({
+            title: "Are you sure?",
+            text: "want to un-Approve comment?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, un-Approve it!",
+            closeOnConfirm: true
+        },
+        function () {
+            $.post('<?= api_url ?>/?r=userData', {id: id, st: st, action: 'approveComment', isActive: '0'}, function (data) {
+                console.log(data);
+                table.ajax.reload(null, false);
+                var json = JSON.parse(data);
+                $.toaster({priority: json.toast[0], title: json.toast[1], message: json.toast[2]});
+
+            });
+
+        });
+    }
+    function replayComment(id, postid)
+    {
+        $("#id").val(id);
+        $("#postid").val(postid);
+        $("#myModal").modal("show");
+
+    }
 </script>

@@ -107,7 +107,7 @@ $response = $resp[0];
         </div>
         <div class="row">
             <div class="col text-center">
-                <div class="button_fill shows_button"><a href="#">browse shows</a></div>
+                <div class="button_fill shows_button"><a href="/deliberatetalks/episodes/">browse shows</a></div>
             </div>
         </div>
     </div>
