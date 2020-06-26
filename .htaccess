@@ -1,20 +1,10 @@
-#<IfModule mod_rewrite.c>
-##Redirect from old domain with subdirectory to new domain w/o subdirectory including full path and query string:
-#Options +FollowSymLinks
-#RewriteEngine On
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2&i=$3 [L]
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2 [L]
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2 [L]
-#</IfModule>
+ErrorDocument 404 http://pixelatedegg.com/deliberatetalks/404/
+ErrorDocument 500 http://pixelatedegg.com/deliberatetalks/500/
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /
+RewriteBase /deliberatetalks/
 RewriteRule ^index\.php$ - [L]
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2&i=$3 [L]
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+)/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2 [L]
-#RewriteRule ^in/([0-9a-zA-Z\_\-]+) /?r=$1&v=$2 [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-#
-RewriteRule . /index.php [L]
+RewriteRule . /deliberatetalks/index.php [L]
 </IfModule>
