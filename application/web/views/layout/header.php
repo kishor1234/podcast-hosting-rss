@@ -12,6 +12,7 @@
         <link href="<?=base_url?>/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
         <script src="<?=base_url?>/assets/website/js/jquery-3.3.1.min.js"></script>
         <script src="<?=base_url?>/assets/plugins/jquerytoast/jquery.toaster.js" type="text/javascript"></script>
+<link rel="alternate" type="application/rss+xml" title="Deliberate Talks &raquo; Feed" href="http://pixelatedegg.com/deliberatetalks/feed.xml" />
         <style>
             .audio-player{
                 width: 100% !important;

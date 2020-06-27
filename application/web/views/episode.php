@@ -188,7 +188,7 @@
                                 <?= $cval["name"]; ?> 
                                 <li class="d-flex flex-row">
                                     <div>
-                                        <div class="comment_image"><img src="/assets/website/images/user_2.jpg" alt="" style="border-radius: 50%;"></div>
+                                        <div class="comment_image"><img src="<?= base_url ?>/assets/website/logo/mock.jpg" alt="" style="border-radius: 50%;"></div>
                                     </div>
                                     <div class="comment_content">
                                         <div class="user_name"><a href="#"><?= $cval["email"]; ?></a></div>

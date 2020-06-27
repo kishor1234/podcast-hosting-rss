@@ -84,6 +84,7 @@ class deliberatetalks extends CAaskController {
                     echo "<googleplay:email>{$resp["email"]}</googleplay:email>" . PHP_EOL;
                     echo "<googleplay:image href = \"{$resp["image_url"]}\" />" . PHP_EOL;
                     echo "<googleplay:category text = \"{$resp["categories"]}\"/>" . PHP_EOL;
+                    echo "<pubDate>" . date("D, d M Y H:s:i ", strtotime($resp["onCreate"])) . "GMT </pubDate>" . PHP_EOL;
 
                     foreach ($resppons as $key => $response) {
                         echo "<item>" . PHP_EOL;
@@ -109,7 +110,7 @@ class deliberatetalks extends CAaskController {
                         echo "<googleplay:image href = \"{$response["image_url"]}\" />" . PHP_EOL;
                         echo "<enclosure url = \"{$response["file_url"]}\" length = \"{$response["file_lenght"]}\" type = \"{$response["file_type"]}\" />" . PHP_EOL;
                         echo "<guid>{$response["file_url"]}</guid>" . PHP_EOL;
-                        echo "<pubDate>" . date("D, d M Y H:s:i T", strtotime($response["onCreate"])) . " </pubDate>" . PHP_EOL;
+                        echo "<pubDate>" . date("D, d M Y H:s:i ", strtotime($response["onCreate"])) . "GMT </pubDate>" . PHP_EOL;
                         echo "</item>" . PHP_EOL;
                     }
                     echo "</channel>" . PHP_EOL;
@@ -176,7 +177,7 @@ class deliberatetalks extends CAaskController {
                         echo "<googleplay:image href = \"{$response["image_url"]}\" />" . PHP_EOL;
                         echo "<enclosure url = \"{$response["file_url"]}\" length = \"{$response["file_lenght"]}\" type = \"{$response["file_type"]}\" />" . PHP_EOL;
                         echo "<guid>{$response["file_url"]}</guid>" . PHP_EOL;
-                        echo "<pubDate>" . date("D, d M Y H:s:i T", strtotime($response["onCreate"])) . " </pubDate>" . PHP_EOL;
+                        echo "<pubDate>" . date("D, d M Y H:s:i ", strtotime($response["onCreate"])) . " GMT </pubDate>" . PHP_EOL;
                         echo "</item>" . PHP_EOL;
                     }
                     echo "</channel>" . PHP_EOL;
@@ -243,7 +244,7 @@ $resp = json_decode($this->jsonRespon(api_url . "/?r=userData", array("action" =
                         echo "<googleplay:image href = \"{$response["image_url"]}\" />" . PHP_EOL;
                         echo "<enclosure url = \"{$response["file_url"]}\" length = \"{$response["file_lenght"]}\" type = \"{$response["file_type"]}\" />" . PHP_EOL;
                         echo "<guid>{$response["file_url"]}</guid>" . PHP_EOL;
-                        echo "<pubDate>" . date("D, d M Y H:s:i T", strtotime($response["onCreate"])) . " </pubDate>" . PHP_EOL;
+                        echo "<pubDate>" . date("D, d M Y H:s:i ", strtotime($response["onCreate"])) . "GMT </pubDate>" . PHP_EOL;
                         echo "</item>" . PHP_EOL;
                     }
                     echo "</channel>" . PHP_EOL;
@@ -282,3 +283,4 @@ $resp = json_decode($this->jsonRespon(api_url . "/?r=userData", array("action" =
     }
 
 }
+
