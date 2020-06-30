@@ -40,6 +40,9 @@ class userData extends CAaskController {
                 case "newPodcast":
                     $this->newPodcast();
                     break;
+                case "editPodcast":
+                    $this->editPodcast();
+                    break;
                 case "myprofile":
                     $array = $this->myprofile();
 
@@ -84,6 +87,9 @@ class userData extends CAaskController {
                     break;
                 case "AllPost":
                     $this->AllPost();
+                    break;
+                case "SinglePostEdit":
+                    $this->SinglePostEdit();
                     break;
                 default :
                     //$this->lastPost();
@@ -218,9 +224,9 @@ class userData extends CAaskController {
     }
 
     function AllPost() {
-        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->orderBy("DESC", "postid");
+        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->orderBy("DESC", "postid");
         if (empty($_POST["tags"])) {
-            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]).$this->ask_mysqli->orderBy("DESC", "postid");
+            $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->orderBy("DESC", "postid");
         } else {
             $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->whereSingleLike(array("tags" => $_POST["tags"])) . $this->ask_mysqli->orderBy("DESC", "postid");
         }
@@ -247,6 +253,19 @@ class userData extends CAaskController {
                 array_push($comment, $row);
             }
             $data["comment"] = $comment;
+            echo json_encode($data);
+        }
+        // echo json_encode($array);
+    }
+
+    function SinglePostEdit() {
+
+        $sql = $this->ask_mysqli->select("post", $_SESSION["db_1"]) . $this->ask_mysqli->where(array("postid" => $_POST["postid"], "userid" => $_POST["userid"]), "AND") . $this->ask_mysqli->limitwithoutoffset(1);
+        $result = $this->adminDB[$_SESSION["db_1"]]->query($sql);
+        $array = array();
+        if ($row = $result->fetch_assoc()) {
+            $data = $row;
+
             echo json_encode($data);
         }
         // echo json_encode($array);
@@ -346,6 +365,70 @@ class userData extends CAaskController {
         $data["categories"] = $_POST["categories"];
         //insertd post
         $sql = $this->ask_mysqli->insert("post", $data);
+        $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, $this->adminDB[$_SESSION["db_1"]]->error) : false;
+        //response
+        if (empty($error)) {
+            $this->adminDB[$_SESSION["db_1"]]->commit();
+            echo json_encode(array("toast" => array("success", "Podcast ", " Successfully post"), "status" => 1, "message" => "Post Success"));
+        } else {
+            $this->adminDB[$_SESSION["db_1"]]->rollback();
+            echo json_encode(array("error" => $error, "toast" => array("danger", "Podcast", "Failed to post " . $this->adminDB[$_SESSION["db_1"]]->error), "status" => 0, "message" => "Postcard failed to post " . $this->adminDB[$_SESSION["db_1"]]->error));
+        }
+        //response
+    }
+
+    function editPodcast() {
+        $this->cors();
+        $data = array();
+        $this->adminDB[$_SESSION["db_1"]]->autocommit(FALSE);
+        $error = array();
+//        $data["userid"] = $_POST["userid"];
+//        $data["name"] = $_POST["name"];
+//        $data["email"] = $_POST["email"];
+        $data["title"] = $_POST["title"];
+        $data["tags"] = $_POST["tags"];
+        $data["ip"] = $_SERVER["REMOTE_HOST"];
+        $data["description"] = $_POST["description"];
+        $data["categories"] = $_POST["categories"];
+        if (!empty($_FILES["image"]["name"])) {
+            $uploadDir = "assets/upload/profile";
+            $imageData = $this->uploadFiletoFileSystem('image', $uploadDir);
+            //print_r($imageData);
+            $sql = $this->ask_mysqli->insert("filesystem", $imageData);
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) == true ? true : array_push($error, "fileSystem query error image " . $this->adminDB[$_SESSION["db_1"]]->error);
+            $imageid = $this->adminDB[$_SESSION["db_1"]]->insert_id;
+            $data["image_id"] = $imageid;
+            $data["image_url"] = $imageData["url"];
+        }
+        //upload banner
+        if (!empty($_FILES["banner"]["name"])) {
+            $bannerData = $this->uploadFiletoFileSystem('banner', $uploadDir);
+            //print_r($bannerData);
+            $sql = $this->ask_mysqli->insert("filesystem", $bannerData);
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) == true ? true : array_push($error, "fileSystem query error banner " . $this->adminDB[$_SESSION["db_1"]]->error);
+            $bannerid = $this->adminDB[$_SESSION["db_1"]]->insert_id;
+            $data["banner_url"] = $bannerData["url"];
+            $data["banner_id"] = $bannerid;
+        }
+        //upload file
+        if (!empty($_FILES["file"]["name"])) {
+            $fileData = $this->uploadAudioFiletoFileSystem('file', $uploadDir);
+            //print_r($fileData);
+            $duration = $fileData["duration"];
+            $lenght = $fileData["length"];
+            unset($fileData["duration"]);
+            unset($fileData["length"]);
+            $sql = $this->ask_mysqli->insert("filesystem", $fileData);
+            $this->adminDB[$_SESSION["db_1"]]->query($sql) == true ? true : array_push($error, "fileSystem query error file " . $this->adminDB[$_SESSION["db_1"]]->error);
+            $fileid = $this->adminDB[$_SESSION["db_1"]]->insert_id;
+            $data["file_id"] = $fileid;
+            $data["file_url"] = $fileData["url"];
+            $data["file_type"] = $fileData["extension"];
+            $data["file_lenght"] = $lenght;
+            $data["duration"] = $duration;
+        }
+        //insertd post
+        $sql = $this->ask_mysqli->update($data, "post") . $this->ask_mysqli->whereSingle(array("postid" => $_POST["postid"]));
         $this->adminDB[$_SESSION["db_1"]]->query($sql) != true ? array_push($error, $this->adminDB[$_SESSION["db_1"]]->error) : false;
         //response
         if (empty($error)) {
@@ -525,7 +608,7 @@ class userData extends CAaskController {
                 $subdata[] = "<audio controls> <source src='{$row["file_url"]}' type='{$row["file_type"]}'></audio>";
                 $subdata[] = $row['onCreate'];
                 $active = '<button onclick="deletebusiness(' . $row["postid"] . ',0)" class="btn btn-danger btn-xs"> <i class="fa fa-trash-o"></i></button>';
-                $subdata[] = $active; // . ' <button onclick="editbusiness(' . $row["id"] . ')" data-toggle="modal" data-target="#myQuestion" class="btn btn-warning btn-xs"> <i class="fa fa-edit"></i></button>';
+                $subdata[] = $active . ' <button onclick="clickOnLink(\'/?r=dashboard&v=editpost&id=' . $row["postid"] . '\', \'#app-container\', false)" class="btn btn-warning btn-xs"> <i class="fa fa-edit"></i></button>';
                 $data[] = $subdata;
             }
             $json_data = array(

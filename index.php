@@ -18,8 +18,20 @@ if ($_REQUEST["tp"] == true) {
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-$protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
-$protocol = "http://";
+//$protocol = stripos($_SERVER['SERVER_PROTOCOL'], 'https') === true ? 'https://' : 'http://';
+//$protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http';
+
+$protocol = "";
+if (isset($_SERVER['HTTPS']) &&
+    ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+  $protocol = 'https://';
+}
+else {
+  $protocol = 'http://';
+}
+
 $full_url = $protocol . $_SERVER['HTTP_HOST'] . "/";
 define('ASETS', $full_url); //define('ASETS',$full_url."assets");
 $hostUrl = $_SERVER['HTTP_HOST'];
@@ -28,13 +40,13 @@ $arrayHostUrl = explode('.', $hostUrl);
 
 if (strcmp($arrayHostUrl[count($arrayHostUrl) - 1], "com")==0) {
         define("live", true);
-        define("domain", "http://pixelatedegg.com/");
-        define("ADMINURL", "http://admin.pixelatedegg.com/");
-        define("game", "http://api.pixelatedegg.com/");
+        define("domain", "https://pixelatedegg.com/");
+        define("ADMINURL", "https://admin.pixelatedegg.com/");
+        define("game", "https://api.pixelatedegg.com/");
         define("company", "podcast");
-        define("api_url", "http://api.pixelatedegg.com");
-        define("admin_url", "http://admin.pixelatedegg.com/");
-        define("base_url","http://pixelatedegg.com/deliberatetalks");
+        define("api_url", "https://api.pixelatedegg.com");
+        define("admin_url", "https://admin.pixelatedegg.com/");
+        define("base_url","https://pixelatedegg.com/deliberatetalks");
         define("noreplayid", "no-replay@pixelatedegg.com");
 }else{
         define("domain", "http://podcast.lcl/");

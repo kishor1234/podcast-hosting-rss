@@ -19,7 +19,7 @@ $response = $resp[0];
                                 <?php
                                 $tags = explode(",", $response["tags"]);
                                 for ($i = 0; $i < count($tags); $i++) {
-                                    echo "<li><a href='#'>{$tags[$i]}</a></li>";
+                                    echo "<li><a href='/deliberatetalks/episodes/{$tags[$i]}'>{$tags[$i]}</a></li>";
                                 }
                                 ?>
                                 <!--                                <li><a href="#">lifestyle</a></li>
@@ -137,10 +137,10 @@ $response = $resp[0];
         <div class="row">
             <div class="col">
                 <div class="intro_content text-center">
-                    <div class="section_title text-center"><h1>ABOUT DE<span>LIBERATE</span></h1></div>
+                    <div class="section_title text-center"><h1>ABOUT DE<span>LIBERATE TALKS</span></h1></div>
                     <div class="intro_text text-center">
-                        <p>Deliberate Talks is a weekly podcast that highlights conversations about Digital Marketing, Entrepreneurship, Evolved work goals, new age opportunities and unconventional stories. Tune in every Monday for a new episode with our Host Dakshin Adyanthaya, the founder and director at Pixelated Egg Digital Ventures for a solo narrative or a conversation for two with his guests from different parts of the world.
-                            You can also follow / download the content on Spotify, Google Podcast, Apple Podcast, Stitcher, Jio Savvn or Youtube or engage with us on <a href="https://instagram.com/deliberatetalks">instagram.com/deliberatetalks</a> or email at <a href="mailto:deliberatetalks@gmail.com">deliberatetalks@gmail.com</a></p>
+                        <p>Deliberate Talks is a weekly podcast that highlights conversations about digital marketing, entrepreneurship, evolved work goals, new age opportunities and unconventional stories. Tune in every Monday for a new episode with our Host Dakshin Adyanthaya, the founder and director at Pixelated Egg Digital Ventures, for a solo narrative or a conversation for two with his guests from different parts of the world.</p>
+                        <p>You can also follow / download the content on Spotify, Google Podcast, Apple Podcast, Jio Saavn, CastBox or Youtube and engage with us on  <a href="https://instagram.com/deliberatetalks">instagram.com/deliberatetalks</a>/<a href="https://instagram.com/pixelatedegg">instagram.com/pixelatedegg</a> or email at <a href="mailto:deliberatetalks@gmail.com">deliberatetalks@gmail.com</a></p>
                     </div>
                     <div class="button_fill intro_button"><a href="#">read more</a></div>
                 </div>

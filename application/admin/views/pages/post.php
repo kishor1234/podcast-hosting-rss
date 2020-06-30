@@ -45,7 +45,10 @@
                             </div>
                         </div>
                         <div class="card-body">
-
+                            <?php
+                            $response = json_decode($main->jsonRespon(api_url . "/?r=userData", array("action" => "loadTablePodcast", "id" => $_SESSION["id"])), true);
+                           // print_r($response["data"]);
+                            ?>
 
                             <div class="card-text">
                                 <table class="stripe hover display responsive nowrap" id="myTable" cellspacing='0'>
@@ -61,7 +64,23 @@
 
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($response["data"] as $ke => $val) {
+                                            echo "<tr>";
+                                            echo "<td>" . $val[0] . "</td>";
+                                            echo "<td>" . $val[1] . "</td>";
+                                            echo "<td>" . $val[2] . "</td>";
+                                            echo "<td>" . $val[3] . "</td>";
+                                            echo "<td>" . $val[4] . "</td>";
+                                            echo "<td>" . $val[5] . "</td>";
+                                            echo "<td>" . $val[6] . "</td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+                                    </tbody>
                                     <tfoot>
+                                        forea
                                         <tr>
                                             <th>ID</th>
                                             <th>Title</th>                                            
@@ -92,35 +111,39 @@
     var table;
     var edit;
     $(document).ready(function () {
+        $('table').DataTable();
+    });
 
-        table = $('#myTable').DataTable({
-            serverSide: true,
-            Processing: true,
-            order: [[0, "desc"]],
-            ajax: {
-                url: '<?= api_url ?>/?r=userData',
-                type: "post", // method  , by default get
-                dataType: "json",
-                data: {action: "loadTablePodcast", id:<?= $_SESSION["id"] ?>},
-                error: function () {  // error handling
-                    $(".data-grid-error").html("");
-                    $("#data-grid").append('<tbody class="data-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
-                    $("#data-grid_processing").css("display", "none");
-                }
-            },
-            scrollCollapse: true,
-            autoWidth: false,
-            responsive: true,
-            columnDefs: [{
-                    targets: "datatable-nosort",
-                    orderable: false
-                }],
-            lengthMenu: [[5, 25, 50, -1], [5, 25, 50, "All"]],
-            language: {
-                info: "_START_-_END_ of _TOTAL_ entries",
-                searchPlaceholder: "Search"
-            }
-        });
+    $(document).ready(function () {
+
+//        table = $('#myTable').DataTable({
+//            serverSide: true,
+//            Processing: true,
+//            order: [[0, "desc"]],
+//            ajax: {
+//                url: '<?= api_url ?>/?r=userData',
+//                type: "post", // method  , by default get
+//                dataType: "json",
+//                data: {action: "loadTablePodcast", id:<?= $_SESSION["id"] ?>},
+//                error: function () {  // error handling
+//                    $(".data-grid-error").html("");
+//                    $("#data-grid").append('<tbody class="data-grid-error"><tr><th colspan="3">No data found in the server</th></tr></tbody>');
+//                    $("#data-grid_processing").css("display", "none");
+//                }
+//            },
+//            scrollCollapse: true,
+//            autoWidth: false,
+//            responsive: true,
+//            columnDefs: [{
+//                    targets: "datatable-nosort",
+//                    orderable: false
+//                }],
+//            lengthMenu: [[1, 25, 50, -1], [1, 25, 50, "All"]],
+//            language: {
+//                info: "_START_-_END_ of _TOTAL_ entries",
+//                searchPlaceholder: "Search"
+//            }
+//        });
 
 
     });

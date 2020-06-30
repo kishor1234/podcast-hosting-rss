@@ -4,7 +4,7 @@
         <title>Deliberate Talks</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="My Podcast template project">
+        <meta name="description" content="The Deliberate Talks podcast is a weekly content series by the Pixelated Egg Digital Ventures (PEDV). In each episode our host Dakshin Adyanthaya, the founder and director at PEDV, will focus on conversations related to Digital Marketing, Entrepreneurship, New Age Opportunities, Evolved Work Goals and Unconventional Ideas. Tune in every Monday, starting July 2020, for a new episode.">
         <base href="<?=base_url?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="<?=base_url?>/assets/website/styles/bootstrap-4.1.2/bootstrap.min.css">
@@ -12,7 +12,7 @@
         <link href="<?=base_url?>/assets/website/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
         <script src="<?=base_url?>/assets/website/js/jquery-3.3.1.min.js"></script>
         <script src="<?=base_url?>/assets/plugins/jquerytoast/jquery.toaster.js" type="text/javascript"></script>
-<link rel="alternate" type="application/rss+xml" title="Deliberate Talks &raquo; Feed" href="http://pixelatedegg.com/deliberatetalks/feed.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Deliberate Talks &raquo; Feed" href="https://pixelatedegg.com/deliberatetalks/feed.xml" />
         <style>
             .audio-player{
                 width: 100% !important;

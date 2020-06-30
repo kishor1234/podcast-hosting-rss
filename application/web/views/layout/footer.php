@@ -31,15 +31,16 @@
             <!-- Tags -->
             <div class="col-lg-4">
                 <div class="footer_title">Enquiry</div>
-                <div><a href="mailto:dakshin@pixelatedegg.com" class="mail">dakshin@pixelatedegg.com</a></div>
+                <br>
+                <div><a href="mailto:deliberatetalks@gmail.com" class="mail">deliberatetalks@gmail.com</a></div>
                 <div class="footer_list_">
-                    <div class="log">
+                    <!--<div class="log">
                         <img src="<?= base_url ?>/assets/website/logo/spotify.png" class="logo-footer" alt=""/>
                         <img src="<?= base_url ?>/assets/website/logo/google.png" class="logo-footer" alt=""/>
                         <img src="<?= base_url ?>/assets/website/logo/castbox.png" class="logo-footer" alt=""/>
                         <img src="<?= base_url ?>/assets/website/logo/youtube.png" class="logo-footer" alt=""/>
                         <img src="<?= base_url ?>/assets/website/logo/apple.png" class="logo-footer" alt=""/>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 
@@ -58,7 +59,7 @@
                                 <a href="/deliberatetalks/episode/<?= str_replace(" ", "-", $response["title"]); ?>">
                                     <div class="d-flex flex-row align-items-start justify-content-start">
                                         <div class="latest_play">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
+                                            <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 714 714" style="enable-background:new 0 0 714 714;" xml:space="preserve">
                                                 <g id="Play">
                                                     <path d="M641.045,318.521L102,0C73.822,0,51,22.822,51,51v612c0,28.178,22.822,51,51,51l539.045-318.521      C654.661,387.422,663,372.81,663,357C663,341.19,654.661,326.579,641.045,318.521z M153,565.386V148.614L505.665,357      L153,565.386z" fill="#FFFFFF"/>
                                                 </g>
@@ -87,32 +88,32 @@
 
             <!-- Gallery -->
             <div class="col-lg-4">
-                <div class="footer_title">Instagram</div>
+                <div class="footer_title">Podcast</div>
                 <div class="gallery d-flex flex-row align-items-start justify-content-start flex-wrap">
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="<?= base_url ?>/assets/website/images/gallery_1_large.jpg"><img src="<?= base_url ?>/assets/website/images/gallery_1.jpg" alt=""></a>
+                        <a class="colorbox" href="<?= base_url ?>/assets/website/logo/spotify.png"><img src="<?= base_url ?>/assets/website/logo/spotify.png" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="<?= base_url ?>/assets/website/images/gallery_2_large.jpg"><img src="<?= base_url ?>/assets/website/images/gallery_2.jpg" alt=""></a>
+                        <a class="colorbox" href="<?= base_url ?>/assets/website/logo/google.png"><img src="<?= base_url ?>/assets/website/logo/google.png" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="<?= base_url ?>/assets/website/images/gallery_3_large.jpg"><img src="<?= base_url ?>/assets/website/images/gallery_3.jpg" alt=""></a>
+                        <a class="colorbox" href="<?= base_url ?>/assets/website/logo/youtube.png"><img src="<?= base_url ?>/assets/website/logo/youtube.png" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="<?= base_url ?>/assets/website/images/gallery_4_large.jpg"><img src="<?= base_url ?>/assets/website/images/gallery_4.jpg" alt=""></a>
+                        <a class="colorbox" href="<?= base_url ?>/assets/website/logo/castbox.png"><img src="<?= base_url ?>/assets/website/logo/castbox.png" alt=""></a>
                     </div>
 
                     <!-- Gallery Item -->
                     <div class="gallery_item">
-                        <a class="colorbox" href="<?= base_url ?>/assets/website/images/gallery_5_large.jpg"><img src="<?= base_url ?>/assets/website/images/gallery_5.jpg" alt=""></a>
+                        <a class="colorbox" href="<?= base_url ?>/assets/website/logo/apple.png"><img src="<?= base_url ?>/assets/website/logo/apple.png" alt=""></a>
                     </div>
 
                 </div>
@@ -135,7 +136,7 @@
         </div>
 
         </br></br>
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="http://pixelatedegg.com/" target="_blank">Pixelatedegg</a>
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved  <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://pixelatedegg.com/" target="_blank">Pixelatedegg</a>
 
     </div>
 </footer>
